@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Star, Calendar, Clock } from 'lucide-react';
+import { Star, Calendar } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/hooks/useAuth';
 import type { Meal, Restaurant } from '@/types/database';

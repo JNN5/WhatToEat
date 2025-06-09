@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, ArrowRight, Check, Utensils } from 'lucide-react';
+import { ArrowLeft, Check, Utensils } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { Meal } from '@/types/database';
 import { GlassCard } from './GlassCard';

@@ -21,11 +21,11 @@ export function AuthForm() {
     const { error } = await signIn(email, password);
     
     if (error) {
-      if (error.message === 'Email not confirmed') {
-        toast.error('Please check your email and click the confirmation link before signing in.');
-      } else {
-        toast.error('Failed to sign in: ' + error.message);
-      }
+      // if (error.message === 'Email not confirmed') {
+      //   toast.error('Please check your email and click the confirmation link before signing in.');
+      // } else {
+        toast.error('Failed to sign in: ' + JSON.stringify(error));
+      // }
     } else {
       toast.success('Welcome back!');
     }

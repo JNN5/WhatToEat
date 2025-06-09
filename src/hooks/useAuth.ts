@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { User } from '@supabase/supabase-js';
 
+export interface AuthResponse {
+  data: Error | any | null;
+  error: Error | any | null;
+}
+
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +20,7 @@ export function useAuth() {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+      (_event, session) => {
         setUser(session?.user ?? null);
         setLoading(false);
       }
@@ -37,13 +42,13 @@ export function useAuth() {
     }
   };
 
-  const signUp = async (email: string, password: string) => {
+  const signUp = async (email: string, password: string): Promise<AuthResponse> => {
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
       });
-      if (error) throw error;
+      if (error) return { data: null, error };
       return { data, error: null };
     } catch (error) {
       return { data: null, error };
